@@ -12,8 +12,8 @@ namespace GroceryStore.Api.Controllers
     public class SupplierManagementController : ControllerBase
     {
         private readonly DataContext _db;
-        private readonly ILogger<UserManagementController> _logger;
-        public SupplierManagementController(ILogger<UserManagementController> logger)
+        private readonly ILogger<SupplierManagementController> _logger;
+        public SupplierManagementController(ILogger<SupplierManagementController> logger)
         {
             _logger = logger;
             _db = new DataContext();

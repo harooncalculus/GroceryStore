@@ -15,6 +15,8 @@ namespace GroceryStore.Api.DataAccessLayer
         public virtual DbSet<UserManagement> usermanagement { get; set; }
 
         public virtual DbSet<SupplierManangement> suppliermanagement { get; set; }
+
+        public virtual DbSet<Prod_categoryManagement> prod_categorymanagement { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -35,6 +37,13 @@ namespace GroceryStore.Api.DataAccessLayer
 
             modelBuilder.Entity<SupplierManangement>().ToTable("supplier");
             modelBuilder.Entity<SupplierManangement>(entity =>
+            {
+                entity.HasKey(e => e.ID);
+            });
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Prod_categoryManagement>().ToTable("prod_category");
+            modelBuilder.Entity<Prod_categoryManagement>(entity =>
             {
                 entity.HasKey(e => e.ID);
             });
